@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindfull Evolution</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<header>
+    <h1>Bienvenido a MINDFULL EVOLUTION</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showSection('inicio')">Inicio</a>
+    <a href="#" onclick="showSection('quienes-somos')">Quiénes Somos</a>
+    <a href="#" onclick="showSection('usuario')">Mi Perfil</a>
+    <a href="#" onclick="showSection('contacto')">Contacto</a>
+</nav>
+
+<div class="container">
+  
+    <div id="inicio" class="section active">
+        <h2>Inicio</h2>
+        <p>Bienvenido a Mindfull Evolution, tu espacio para el desarrollo personal y profesional.</p>
+    </div>
+
+   
+    <div id="quienes-somos" class="section">
+        <h2>Quiénes Somos</h2>
+        <p>En <strong>Mindfull Evolution</strong>, somos un equipo apasionado de expertos en bienestar y desarrollo personal. Nuestra misión es ayudarte a encontrar el equilibrio entre mente, cuerpo y espíritu a través de prácticas de mindfulness, programas de desarrollo personal y apoyo integral.</p>
+        <p>Creemos firmemente que cada persona tiene el potencial para alcanzar una vida plena y significativa, y estamos aquí para ofrecerte las herramientas y el acompañamiento necesarios para que lo logres. Con años de experiencia en el campo del bienestar, hemos creado una plataforma que no solo ofrece cursos, sino también una comunidad solidaria donde puedes crecer y compartir tu camino.</p>
+
+        <h3>Nuestro Equipo</h3>
+        <ul>
+            <li><strong>Marco Jiménez - Fundador y CEO:</strong> Con una vasta experiencia en liderazgo y desarrollo personal, Juan es el corazón y la mente detrás de Mindfull Evolution. Su pasión por el bienestar y su visión innovadora han sido clave en la creación de este espacio único.</li>
+            <li><strong>Angie Lizeth - Directora de Programas:</strong> Experta en mindfulness y bienestar integral, María se encarga de diseñar y supervisar todos nuestros cursos y programas. Su enfoque está en crear experiencias transformadoras que realmente marquen la diferencia en la vida de nuestros usuarios.</li>
+            <li><strong>Janier Rodriguez - Instructor Principal:</strong> Con una formación en psicología y técnicas de mindfulness, Carlos es uno de nuestros instructores más valorados. Su habilidad para conectar con las personas y guiarlas en su proceso de crecimiento es una de las razones por las que nuestros cursos son tan efectivos.</li>
+        </ul>
+
+        <h3>Nuestra Filosofía</h3>
+        <p>En Mindfull Evolution, creemos en un enfoque holístico del bienestar. Esto significa que no solo trabajamos en el desarrollo de la mente, sino también en el cuidado del cuerpo y la conexión con el espíritu. Creemos que la verdadera evolución personal comienza desde adentro, y estamos comprometidos a ofrecerte las herramientas necesarias para que alcances tu máximo potencial.</p>
+    </div>
+
+    
+    <div id="usuario" class="section">
+        <h2>Mi Perfil</h2>
+        <ul>
+            <li><a href="#" onclick="showSubSection('mis-cursos')">Mis Cursos</a></li>
+            <li><a href="#" onclick="showSubSection('ajustes')">Ajustes de Perfil</a></li>
+            <li><a href="#" onclick="showSubSection('notificaciones')">Notificaciones</a></li>
+        </ul>
+        
+        <div id="mis-cursos" class="sub-section">
+            <h3>Mis Cursos</h3>
+            <p>Aquí puedes ver y gestionar tus cursos actuales.</p>
+        </div>
+
+        <div id="ajustes" class="sub-section">
+            <h3>Ajustes de Perfil</h3>
+            <p>Configura tus preferencias y actualiza tu información personal.</p>
+        </div>
+
+        <div id="notificaciones" class="sub-section">
+            <h3>Notificaciones</h3>
+            <p>Revisa y personaliza las notificaciones que recibes.</p>
+        </div>
+    </div>
+
+    
+    <div id="contacto" class="section">
+        <h2>Contáctanos</h2>
+        <ul>
+            <li><strong>Correo Electrónico:</strong> <a href="mailto:info@mindfullevolution.com">info@mindfullevolution.com</a></li>
+            <li><strong>Teléfono:</strong> +34 123 456 789</li>
+            <li><strong>Dirección:</strong> Calle Ejemplo 123, 28001 Bogotá, Colombia</li>
+        </ul>
+        <h3>Síguenos en Redes Sociales</h3>
+        <ul>
+            <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+            <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Mindfull Evolution | Todos los derechos reservados</p>
+</footer>
+<script src="main.js"></script>
+
+</body>
+</html>

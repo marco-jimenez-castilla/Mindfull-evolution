@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .calculator {
+            width: 90%;
+            max-width: 320px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        .display {
+            background-color: #333;
+            color: #fff;
+            font-size: 2.5em;
+            text-align: right;
+            padding: 20px;
+            box-sizing: border-box;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 1px;
+        }
+
+        button {
+            background-color: #e0e0e0;
+            border: none;
+            padding: 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #d0d0d0;
+        }
+
+        .zero {
+            grid-column: span 2;
+        }
+
+        button:nth-child(4n) {
+            background-color: #f0a500;
+            color: white;
+        }
+
+        button:nth-child(4n):hover {
+            background-color: #d08a00;
+        }
+
+        .btn-clear {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .btn-clear:hover {
+            background-color: #cc0000;
+        }
+
+        .btn-delete {
+            background-color: #ff944d;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background-color: #cc5200;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button onclick="clearDisplay()" class="btn-clear">C</button>
+            <button onclick="deleteLast()" class="btn-delete">←</button>
+            <button onclick="appendCharacter('%')">%</button>
+            <button onclick="appendCharacter('/')">/</button>
+            <button onclick="appendCharacter('7')">7</button>
+            <button onclick="appendCharacter('8')">8</button>
+            <button onclick="appendCharacter('9')">9</button>
+            <button onclick="appendCharacter('*')">*</button>
+            <button onclick="appendCharacter('4')">4</button>
+            <button onclick="appendCharacter('5')">5</button>
+            <button onclick="appendCharacter('6')">6</button>
+            <button onclick="appendCharacter('-')">-</button>
+            <button onclick="appendCharacter('1')">1</button>
+            <button onclick="appendCharacter('2')">2</button>
+            <button onclick="appendCharacter('3')">3</button>
+            <button onclick="appendCharacter('+')">+</button>
+            <button onclick="appendCharacter('0')" class="zero">0</button>
+            <button onclick="appendCharacter('.')">.</button>
+            <button onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+        let currentInput = '';
+        let previousInput = '';
+        let operator = '';
+
+        function clearDisplay() {
+            currentInput = '';
+            previousInput = '';
+            operator = '';
+            display.textContent = '0';
+        }
+
+        function deleteLast() {
+            currentInput = currentInput.slice(0, -1);
+            display.textContent = currentInput || '0';
+        }
+
+        function appendCharacter(char) {
+            if (char === '.' && currentInput.includes('.')) return;
+            if (['+', '-', '*', '/', '%'].includes(char)) {
+                if (currentInput) {
+                    if (previousInput) {
+                        calculate();
+                    }
+                    operator = char;
+                    previousInput = currentInput;
+                    currentInput = '';
+                } else if (previousInput) {
+                    operator = char;
+                }
+            } else {
+                currentInput += char;
+            }
+            display.textContent = currentInput || previousInput || '0';
+        }
+
+        function calculate() {
+            if (operator && previousInput) {
+                switch (operator) {
+                    case '+':
+                        currentInput = (parseFloat(previousInput) + parseFloat(currentInput)).toString();
+                        break;
+                    case '-':
+                        currentInput = (parseFloat(previousInput) - parseFloat(currentInput)).toString();
+                        break;
+                    case '*':
+                        currentInput = (parseFloat(previousInput) * parseFloat(currentInput)).toString();
+                        break;
+                    case '/':
+                        if (parseFloat(currentInput) === 0) {
+                            display.textContent = 'Error';
+                            currentInput = '';
+                            return;
+                        }
+                        currentInput = (parseFloat(previousInput) / parseFloat(currentInput)).toString();
+                        break;
+                    case '%':
+                        currentInput = (parseFloat(previousInput) % parseFloat(currentInput)).toString();
+                        break;
+                }
+                operator = '';
+                previousInput = '';
+                display.textContent = currentInput;
+            }
+        }
+    </script>
+</body>
+</html>
+2

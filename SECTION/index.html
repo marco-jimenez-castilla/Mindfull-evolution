@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Dog</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #gameCanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawDog(x, y) {
+            // Cuerpo
+            ctx.fillStyle = 'saddlebrown';
+            ctx.beginPath();
+            ctx.ellipse(x, y + 30, 60, 40, 0, 0, Math.PI * 2); // Cuerpo
+            ctx.fill();
+
+            // Cabeza
+            ctx.beginPath();
+            ctx.arc(x, y - 10, 30, 0, Math.PI * 2); // Cabeza
+            ctx.fill();
+
+            // Ojos
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(x - 15, y - 20, 10, 0, Math.PI * 2); // Ojo izquierdo
+            ctx.arc(x + 15, y - 20, 10, 0, Math.PI * 2); // Ojo derecho
+            ctx.fill();
+
+            // Pupilas
+            ctx.fillStyle = 'black';
+            ctx.beginPath();
+            ctx.arc(x - 15, y - 20, 5, 0, Math.PI * 2); // Pupila izquierda
+            ctx.arc(x + 15, y - 20, 5, 0, Math.PI * 2); // Pupila derecha
+            ctx.fill();
+
+            // Nariz
+            ctx.fillStyle = 'black';
+            ctx.beginPath();
+            ctx.arc(x, y - 5, 8, 0, Math.PI * 2); // Nariz
+            ctx.fill();
+
+            // Boca
+            ctx.strokeStyle = 'black';
+            ctx.beginPath();
+            ctx.arc(x, y + 5, 12, 0, Math.PI); // Boca
+            ctx.stroke();
+
+            // Orejas
+            ctx.fillStyle = 'saddlebrown';
+            ctx.beginPath();
+            ctx.arc(x - 30, y - 10, 15, 0, Math.PI * 2); // Oreja izquierda
+            ctx.arc(x + 30, y - 10, 15, 0, Math.PI * 2); // Oreja derecha
+            ctx.fill();
+
+            // Cola
+            ctx.fillStyle = 'saddlebrown';
+            ctx.beginPath();
+            ctx.moveTo(x + 60, y + 10);
+            ctx.lineTo(x + 90, y);
+            ctx.lineTo(x + 80, y + 20);
+            ctx.fill();
+        }
+
+        drawDog(200, 200); // Dibuja el perrito en el centro del canvas
+    </script>
+</body>
+</html>
